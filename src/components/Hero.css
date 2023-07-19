@@ -123,7 +123,7 @@ form button {
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 16px;
+    column-gap: 10px;
 }
 
 .inner-container {

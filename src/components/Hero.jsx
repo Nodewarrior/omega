@@ -96,7 +96,7 @@ function Hero() {
           </p>
         </div>
         <div className="hero-image">
-          <img src={Illustration} alt="Descriptive text about the image" />
+          <img src={Illustration} alt="user images" />
         </div>
       </section>
     );
