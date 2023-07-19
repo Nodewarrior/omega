@@ -71,10 +71,13 @@
 }
 
 .home__container p {
-    line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
     font-weight: 400;
+}
+
+.hero-para {
+    font-size: 16px;
 }
 
 .home__container form {
@@ -129,7 +132,7 @@ form button {
 .inner-container {
     padding: 2px 12px;
     background: var(--color-accent);
-    border-radius: 10px;
+    border-radius: 0.75rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -137,14 +140,12 @@ form button {
 
 .inner-text, .content-text {
     color: var(--color-secondary);
-    font-family: 'Inter', sans-serif;
-    line-height: 20px;
     letter-spacing: 0.30px;
     word-wrap: break-word;
 }
 
 .inner-text {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
 }
@@ -153,11 +154,11 @@ form button {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .content-text {
-    font-size: 14px;
+    font-size: 0.85rem;
     font-weight: 400;
 }
 
@@ -189,6 +190,11 @@ form button {
         align-self: stretch;
         letter-spacing: -0.045em;
         line-height: 4rem;
+    }
+
+    .hero-para {
+        font-size: clamp(18px, 0.4rem + 1vw, 24px);
+        line-height: 28px;
     }
 
 }

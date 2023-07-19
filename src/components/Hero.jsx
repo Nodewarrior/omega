@@ -74,7 +74,7 @@ function Hero() {
               <div className="first-line">A better way to</div>
               <div className="second-line">ship web apps</div>
             </div>
-            <p>
+            <p className='hero-para'>
               Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
               Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
               fugiat.
