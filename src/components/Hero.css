@@ -50,13 +50,16 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    padding-bottom: 2rem;
 }
 
 .hero-text .first-line,
 .hero-text .second-line {
     align-self: stretch;
-    font-size: clamp(2rem, 5vw,  3.5rem);
+    font-size: clamp(3rem, 6vw, 4rem);
     font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 3rem;
 }
 
 .hero-text .first-line {
@@ -180,4 +183,12 @@ form button {
     .home__container form {
         flex-direction: row;
     }
+
+    .hero-text .first-line,
+    .hero-text .second-line {
+        align-self: stretch;
+        letter-spacing: -0.045em;
+        line-height: 4rem;
+    }
+
 }
