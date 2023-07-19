@@ -1,5 +1,5 @@
 
-function Hero() {
+function Company() {
     // component's code goes here
 
     return (
@@ -8,4 +8,4 @@ function Hero() {
     )
 }
 
-export default Hero; 
+export default Company; 
