@@ -106,13 +106,18 @@
 
 .login-text {
     font-size: 0.75rem;
-    color: var(--color-primary);
+    color: var(--color-secondary);
     font-weight: 600;
   }
 
 .nav__button-link,
 .nav__button--purple {
     color: var(--color-white);
+}
+
+.nav__button-link {
+    color: var(--color-primary);
+    margin-left: 0.5rem;
 }
 
 .nav__button--purple {
@@ -163,13 +168,19 @@
         gap: 1rem;
     }
 
+    
+    .nav__button-link {
+        color: var(--color-white);
+        margin-left: 0.5rem;
+    }
+
     .nav__link {
         color: var(--color-white);
     }
 
     .nav__button--purple {
         background-color: #4B5563;
-        padding: 0.5rem 2.5rem;
-        border-radius: 0.5rem;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.25rem;
     }
 }

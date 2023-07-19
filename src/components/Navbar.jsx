@@ -14,12 +14,12 @@ const LoginComponent = ({ isOpen }) => {
       {isOpen ? (
         <p className="login-text">
             Existing customer?
-            <Link to="/login" className="nav__button--link">
-            Login
+            <Link to="/login" className="nav__button-link">
+                Login
             </Link>
         </p>
       ) : (
-        <Link to="/login" className='nav__button--link'>Login</Link>
+        <Link to="/login" className='nav__button-link'>Login</Link>
       )}
     </div>
   );
