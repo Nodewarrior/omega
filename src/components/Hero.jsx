@@ -1,9 +1,62 @@
+import { useState } from 'react';
+
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import Illustration from '/Illustration.png';
 import arrow from '../assets/arrow.svg';
 
+import './Hero.css';
+
+const client = new ApolloClient({
+    uri: 'https://graphqlzero.almansi.me/api',
+    cache: new InMemoryCache(),
+  });
+
+  const CREATE_USER = gql`
+  mutation {
+    createUser(
+      input: {
+        name: "John Doe"
+        username: "johndoe"
+        email: "johndoe@example.com"
+      }
+    ) {
+      id
+      name
+      username
+      email
+    }
+  }
+`;
+
 function Hero() {
+    const [email, setEmail] = useState('');
+
+    const handleStartTrial = () => {
+        event.preventDefault();
+
+        const name = "Akshay Kumar"; 
+        const username = "akshayk"; 
+      
+        client
+          .mutate({
+            mutation: CREATE_USER,
+            variables: {
+              name: name,
+              username: username,
+              email: email,
+            },
+          })
+          .then(result => {
+            console.log(result.data, 'Mutation executed successfully');
+          })
+          .catch(error => {
+            console.error('Mutation error:', error);
+          });          
+      };
+          
+
     return (
-      <section className="hero">
+      <section className="main hero">
         <div className="home__container">
           <section>
             <div className="outer-container">
@@ -27,10 +80,15 @@ function Hero() {
               fugiat.
             </p>
           </section>
-          <form>
-            <input type="text" placeholder="Enter your email" />
-            <button>Start free trial</button>
-          </form>
+        <form>
+          <input
+            type="text"
+            placeholder="Enter your email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          <button onClick={handleStartTrial}>Start free trial</button>
+        </form>
           <p className="help">
             Start your free 14 day trial, no credit card necessary. By providing
             your email address, you agree to our
