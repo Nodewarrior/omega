@@ -189,6 +189,7 @@ form button {
     .hero-text .second-line {
         align-self: stretch;
         letter-spacing: -0.045em;
+        font-weight: 600;
         line-height: 4rem;
     }
 
