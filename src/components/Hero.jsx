@@ -12,20 +12,14 @@ const client = new ApolloClient({
   });
 
   const CREATE_USER = gql`
-  mutation {
-    createUser(
-      input: {
-        name: "John Doe"
-        username: "johndoe"
-        email: "johndoe@example.com"
-      }
-    ) {
-      id
-      name
-      username
-      email
+    mutation CreateUser($name: String!, $username: String!, $email: String!) {
+        createUser(input: { name: $name, username: $username, email: $email }) {
+        id
+        name
+        username
+        email
+        }
     }
-  }
 `;
 
 function Hero() {

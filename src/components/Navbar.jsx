@@ -31,8 +31,26 @@ LoginComponent.propTypes = {
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  // const menuRef = useRef(null);
 
   const toggleNavbar = () => setIsOpen(!isOpen);
+
+  // const handleClickOutside = (event) => {
+  //   if (menuRef.current && !menuRef.current.contains(event.target)) {
+  //     setIsOpen(false);
+  //   }
+  // };
+  
+  // useEffect(() => {
+  //   const handleDocumentClick = (event) => {
+  //     handleClickOutside(event);
+  //   };
+
+  //   document.addEventListener('click', handleDocumentClick);
+  //   return () => {
+  //     document.removeEventListener('click', handleDocumentClick);
+  //   };
+  // }, []);
 
   return (
     <header className='header'>
