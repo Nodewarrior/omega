@@ -15,7 +15,6 @@
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-areas: 'container' 'image';
-    height: calc(100vh - 3.5rem);
     padding: 1rem;
     place-items: center;
 }
@@ -171,6 +170,7 @@ form button {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
         grid-template-areas: "container image";
+        height: calc(100vh - 3.5rem);
     }
 
     .hero-image {
