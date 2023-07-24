@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -31,26 +31,23 @@ LoginComponent.propTypes = {
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  // const menuRef = useRef(null);
+  const menuRef = useRef(null);
 
   const toggleNavbar = () => setIsOpen(!isOpen);
-
-  // const handleClickOutside = (event) => {
-  //   if (menuRef.current && !menuRef.current.contains(event.target)) {
-  //     setIsOpen(false);
-  //   }
-  // };
   
-  // useEffect(() => {
-  //   const handleDocumentClick = (event) => {
-  //     handleClickOutside(event);
-  //   };
+  useEffect(() => {
+    let handleDocumentClick = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
 
-  //   document.addEventListener('click', handleDocumentClick);
-  //   return () => {
-  //     document.removeEventListener('click', handleDocumentClick);
-  //   };
-  // }, []);
+    document.addEventListener('mousedown', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleDocumentClick);
+    };
+  });
 
   return (
     <header className='header'>
@@ -58,24 +55,27 @@ function Navbar() {
         <Link to="/">
           <img src={navLogo} className={`nav__logo ${isOpen ? 'nav__logo--overlay' : ''}`} alt="Nav logo" />
         </Link>
-        <div className={`nav__menu ${isOpen ? 'show-menu' : ''}`}>
-          <ul className='nav__list'>
-            {['Product', 'Features', 'Marketplace', 'Company'].map((text) => (
-              <li key={text} className='nav__item'>
-                <Link to={`/${text.toLowerCase()}`} className='nav__link'>{text}</Link>
-              </li>
-            ))}
-          </ul>
+        <div className={`overlay ${isOpen ? 'active' : ''}`} >
+          <div className={`nav__menu ${isOpen ? 'show-menu' : ''}`} ref={menuRef}>
+            <ul className='nav__list'>
+              {['Product', 'Features', 'Marketplace', 'Company'].map((text) => (
+                <li key={text} className='nav__item'>
+                  <Link to={`/${text.toLowerCase()}`} className='nav__link'>{text}</Link>
+                </li>
+              ))}
+            </ul>
 
-          <div className='nav__buttons'>
-            <Link to="/trial" className='nav__button--purple'>Start free trial</Link>
-            <LoginComponent isOpen={isOpen} />
+            <div className='nav__buttons'>
+              <Link to="/trial" className='nav__button--purple'>Start free trial</Link>
+              <LoginComponent isOpen={isOpen} />
+            </div>
+
+            {isOpen && <button className="nav__close" onClick={toggleNavbar}>
+              <img src={close} alt="close" />
+            </button>}
           </div>
-
-          {isOpen && <button className="nav__close" onClick={toggleNavbar}>
-            <img src={close} alt="close" />
-          </button>}
         </div>
+
 
         <button className='nav__toggle' onClick={toggleNavbar}>
           <img src={hamburger} alt="hamburger" />
