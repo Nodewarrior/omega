@@ -55,7 +55,7 @@ function Navbar() {
         <Link to="/">
           <img src={navLogo} className={`nav__logo ${isOpen ? 'nav__logo--overlay' : ''}`} alt="Nav logo" />
         </Link>
-        <div className={`overlay ${isOpen ? 'active' : ''}`} >
+        {/* <div className={`overlay ${isOpen ? 'active' : ''}`} > */}
           <div className={`nav__menu ${isOpen ? 'show-menu' : ''}`} ref={menuRef}>
             <ul className='nav__list'>
               {['Product', 'Features', 'Marketplace', 'Company'].map((text) => (
@@ -74,7 +74,7 @@ function Navbar() {
               <img src={close} alt="close" />
             </button>}
           </div>
-        </div>
+        {/* </div> */}
 
 
         <button className='nav__toggle' onClick={toggleNavbar}>
